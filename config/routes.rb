@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   
   post '/search', to: 'products#index'
 
-#  devise_scope :user do
-#   get '/users/sign_out', to:'devise/sessions#destroy'
-#  end
+ devise_scope :user do
+  get '/users/sign_out', to:'devise/sessions#destroy'
+ end
 
 #  ActiveAdmin.routes(self)
 
