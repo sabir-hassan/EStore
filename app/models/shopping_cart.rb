@@ -19,13 +19,15 @@ class ShoppingCart
   def add_item(product_id:, quantity: 1)
     product = Product.find(product_id)
     
-    order_item = order.items.find_or_initialize_by(
-      product_id: product_id
-    )
+    # order_item = order.items.find_or_initialize_by(
+    #   product_id: product_id,
+    # )
 
-    order_item.price = product.price
-    order_item.quantity = quantity
+    order_item = order.items.find_by(product_id: product_id) || OrderItem.new(order_id: order.id, product_id: product_id, quantity: 0, price: product.price)
 
+    #order_item.price = product.price
+    order_item.quantity = order_item.quantity + quantity
+    #binding.pry
     ActiveRecord::Base.transaction do
       order_item.save
       update_sub_total!
