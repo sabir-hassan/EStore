@@ -24,11 +24,11 @@ import "bootstrap-select";
 import "contact-us-cgi";
 import "custom";
 import "form-validator";
-import "isotope";
+//import "isotope";
 import "jquery.nicescroll";
 import "jquery-ui";
 import "owl.carousel";
-import "popper";
+//import "popper";
 import "../vendor/bootsnav"
 import "../vendor/contact-form-script"
 import "../vendor/inewsticker"
