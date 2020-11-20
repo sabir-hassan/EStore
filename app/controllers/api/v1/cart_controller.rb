@@ -9,7 +9,7 @@ module Api
       	cart = ShoppingCart.new(token: @user)
       	order = cart.order
       	order_items = OrderItem.joins(:product).select("products.title, order_items.*").where(order_id: order.id)
-		    render json: order_items
+		    render json: {order: order, items: order_items}
 		  end
 
 		  def create
@@ -20,7 +20,7 @@ module Api
 		    )
 		    order = cart.order
       	order_items = OrderItem.joins(:product).select("products.title, order_items.*").where(order_id: order.id)
-		    render json: order_items
+		    render json: {order: order, items: order_items}
 		  end
 
 			def destroy
@@ -30,7 +30,7 @@ module Api
 		    )
 		    order = cart.order
       	order_items = OrderItem.joins(:product).select("products.title, order_items.*").where(order_id: order.id)
-		    render json: order_items
+		    render json: {order: order, items: order_items}
 		  end
 
 		  private

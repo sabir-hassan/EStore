@@ -41,5 +41,5 @@ import "../css/application.scss";
 
 // copy all static images under ../img and ../svg to the output folder,
 // and you can reference them with <%= image_pack_tag 'media/img/abc.png' %> or <%= image_pack_tag 'media/svg/def.svg' %>
-const images = require.context('../img', true)
+const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)

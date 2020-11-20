@@ -14,7 +14,7 @@ module Api
 	  		new_cart = ShoppingCart.new(token: @user)
 		    new_order = new_cart.order
       	new_order_items = OrderItem.joins(:product).select("products.title, order_items.*").where(order_id: new_order.id)
-		    render json: new_order_items
+		    render json: {order: new_order, items: new_order_items}
 		  end
 
 		
